@@ -1,8 +1,0 @@
-{
-  "build": {
-    "builder": "nixpacks",
-    "nixpacksConfig": {
-      "providers": ["static"]
-    }
-  }
-}
