@@ -29,7 +29,10 @@ if os.path.isfile("env.py"):
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# This env variable sets DEBUG to True whilst developing locally but, since
+# there is no DEVELOPMENT config variable set in Heroku, DEBUG stays False when
+# deployed.
+DEBUG = "DEVELOPMENT" in os.environ
 
 ALLOWED_HOSTS = [
     "railway.arundhanjal.com",
@@ -37,6 +40,9 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://railway.arundhanjal.com",
+]
 
 # Application definition
 
